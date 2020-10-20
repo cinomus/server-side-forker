@@ -5,7 +5,7 @@ const puppeteer = require(`puppeteer`);
 let fonbetPage;
 
 async function fonbetParsing() {
-    const browser = await puppeteer.launch({headless: false, timeout:0,args: ['--no-sandbox']});
+    const browser = await puppeteer.launch({headless: true, timeout:0,args: ['--no-sandbox']});
     fonbetPage = await browser.newPage();
     // await fonbetPage.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
     await fonbetPage.setViewport({width: 1920, height: 1080});
