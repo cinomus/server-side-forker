@@ -3,7 +3,7 @@ const puppeteer = require(`puppeteer`);
 
 let olimpPage;
 async function olimpParsing() {
-    const browser = await puppeteer.launch({headless: false, args: ['--no-sandbox']});
+    const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox']});
     olimpPage = await browser.newPage();
     await olimpPage.setViewport({width: 1920, height: 1080});
     await olimpPage.goto('https://www.olimp.bet/live');
