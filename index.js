@@ -27,8 +27,8 @@ io.on('connection', (client) => {
   });
 });
 
-io.listen(443);
-console.log('listening on port ', 443);
+io.listen(8080);
+console.log('listening on port ', 8080);
 
 
 async function start() {
