@@ -38,9 +38,6 @@ async function start() {
 
         await myapp.parse();
         await myapp.compare();
-        app.listen(PORT, ()=>{
-            console.log(`Started on ${PORT}!`);
-        })
     }
     catch (e) {
         console.log(e)
