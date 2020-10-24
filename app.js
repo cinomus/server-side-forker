@@ -22,8 +22,9 @@ app.compare = async function compare() {
         savedFonbetMatches = fonbetMatches;
     }, 250)
 
+
     async function comparing(changedKoefs, ...arguments) {
-        // console.log('checkpoint 1')
+        console.log('checkpoint 1')
         let iteration1 = 0;
         let initiators = [];
         let forks = [];
@@ -34,14 +35,18 @@ app.compare = async function compare() {
                     iteration2++;
                     continue
                 } else {
-                    // console.log('checkpoint 1/5')
+                    console.log('checkpoint 1/5')
                     for (let elem of arg) {
                         for (let elem2 of arg2) {
                             // console.log(`${elem2.id}${elem2.team_1}${elem2.team_2}`)
                             // console.log(elem.team_1 === elem2.team_1 && elem.team_2 === elem2.team_2 && elem.discipline === elem2.discipline && elem.platform !== elem2.platform)
+                            // console.log(elem.team_1 ,' vs ',elem2.team_1)
+                            // console.log(elem.team_2 ,' vs ',elem2.team_2)
+                            // console.log(elem.discipline ,' vs ',elem2.discipline)
+                            // console.log(elem.platform ,' vs ',elem2.platform)
                             if (elem.team_1 === elem2.team_1 && elem.team_2 === elem2.team_2 && elem.discipline === elem2.discipline && elem.platform !== elem2.platform) {
                                 // console.log(elem, elem2);
-                                // console.log('checkpoint 2')
+                                console.log('checkpoint 2')
                                 if (elem.drawn_game !== undefined && elem2.drawn_game !== undefined) {
                                     await findForks(elem.koef_1, elem2.winner2_or_noWinners, undefined , undefined,'koef_1&winner2_or_noWinners')
                                     await findForks(elem.koef_2, elem2.winner1_or_noWinners, undefined, undefined, 'koef_2&winner1_or_noWinners')
@@ -234,7 +239,7 @@ app.compare = async function compare() {
 
         }
         await Initiator.updateInitiators(initiators);
-        console.log(forks.length)
+        console.log('forks: ', forks.length)
         await Fork.updateForks(forks);
         // console.log('forks ',Fork.forks.length)
         // console.log('end')

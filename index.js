@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const path = require('path')
 const app = express();
 const myapp = require('./app')
-// const PORT = process.env.PORT || 80;
+const PORT = process.env.PORT || 80;
 const {Router} = require('./node_modules/express')
 const Fork = require('./models/Fork')
 
@@ -38,9 +38,9 @@ async function start() {
 
         await myapp.parse();
         await myapp.compare();
-//         app.listen(PORT, ()=>{
-//             console.log(`Started on ${PORT}!`);
-//         })
+        app.listen(PORT, ()=>{
+            console.log(`Started on ${PORT}!`);
+        })
     }
     catch (e) {
         console.log(e)

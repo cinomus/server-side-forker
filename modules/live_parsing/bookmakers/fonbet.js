@@ -7,7 +7,7 @@ let fonbetPage;
 async function fonbetParsing() {
     const browser = await puppeteer.launch({headless: true, timeout:0,args: ['--no-sandbox']});
     fonbetPage = await browser.newPage();
-    // await fonbetPage.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
+    await fonbetPage.setUserAgent('Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36');
     await fonbetPage.setViewport({width: 1920, height: 1080});
     await fonbetPage.goto('https://www.fonbet.ru/live/');
     await fonbetPage.waitForSelector('#page__wrap > div.page__container.js-scroll-container.js-page-container._device_desktop._theme_red > div.page-layout--qkduQ > div > div.coupon-layout__content--gGzha > div > div.line-filter-layout__content--q-JdM > section > div.table__flex-container > table')

@@ -73,8 +73,8 @@ class Fork {
     }
     static async updateForks(forks){
         await Fork._deleteFork(forks);
-        await addFork(forks);
-        async function addFork(forks) {
+        await aaddFork(forks);
+        async function aaddFork(forks) {
             for (let fork of forks){
                 if (fork.initiator1 === undefined||fork.initiator2 === undefined) {
                     return
