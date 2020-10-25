@@ -7,7 +7,7 @@ const {maraphonParsing, getPageMaraphon} = require('./bookmakers/maraphon')
 
 async function live_parsing() {
 
-    // await fonbetParsing();
+    await fonbetParsing();
     await olimpParsing();
 
     // await maraphonParsing();
