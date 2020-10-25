@@ -39,8 +39,8 @@ class Fork {
                 if (savedFork.initiator1.id === undefined||savedFork.initiator2.id === undefined||savedFork.initiator2.koef === undefined){
                     console.log(savedFork)
                 }
-                if (this.initiator1.id === undefined|| !this.initiator2.id === undefined||!this.initiator2.koef === undefined){
-                    console.log('pizda v vilke')
+                if (this.initiator1.id === undefined|| this.initiator2.id === undefined||this.initiator2.koef === undefined){
+                    console.log('pizda v vilke',this.initiator1.id,this.initiator2.id,this.initiator2.koef)
                 }
                 if (savedFork.initiator1.id === this.initiator1.id &&
                     savedFork.initiator2.id === this.initiator2.id &&

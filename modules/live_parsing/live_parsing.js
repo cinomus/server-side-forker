@@ -7,7 +7,7 @@ const {maraphonParsing, getPageMaraphon} = require('./bookmakers/maraphon')
 
 async function live_parsing() {
 
-    await fonbetParsing();
+    // await fonbetParsing();
     await olimpParsing();
 
     // await maraphonParsing();
@@ -18,15 +18,16 @@ async function live_parsing() {
 
 
 }
-
 async function getM(site) {
     if (site === 'olimp') {
         let olimpPage = await getPageOlimp()
-        return olimpPage.evaluate(() => {
+        return olimpPage.evaluate(async () => {
             let kekw = []
             let keys = Object.keys(sessionStorage);
             for (let key of keys) {
-                kekw.push(JSON.parse(sessionStorage.getItem(key)));
+                if (key !== '__gti__' && key !== '__vw_tab_guid'){// костыль изза того что почему то сесшен стораге иначально попадает с 2 говняными элементами
+                    kekw.push(JSON.parse(sessionStorage.getItem(key)));
+                }
             }
             return kekw
         })
@@ -37,7 +38,7 @@ async function getM(site) {
             let kekw = []
             let keys = Object.keys(sessionStorage);
             for (let key of keys) {
-                kekw.push(JSON.parse(sessionStorage.getItem(key)));
+                if (key !== '__gti__' && key !== '__vw_tab_guid') kekw.push(JSON.parse(sessionStorage.getItem(key)));
             }
             return kekw
         })
